@@ -1,4 +1,4 @@
-export const results = [
+export const Results = [
   {
       id: 1,
       title: "Medical Advice",
