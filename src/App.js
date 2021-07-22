@@ -1,13 +1,11 @@
 import React from 'react'
-import { Header } from './Header.js'
-import { QuestionList } from './QuestionList.js'
-import { Search } from './Search.js'
+import { Header } from './components/Header.js'
+import { QuestionList } from './components/QuestionList.js'
 
 export const App = () => {
   return (
     <div>
       <Header />
-      <Search />
       <QuestionList />
     </div>
   )
