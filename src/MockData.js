@@ -1,4 +1,4 @@
-const questions = [
+export const data = [
   {
     id: 1,
     title: 'Medical Advice',
@@ -12,6 +12,7 @@ const questions = [
         author: 'Abigail Fillmore',
         accepted: true,
         Votes: 4
+
       }
     ],
     Favorited_by: [
@@ -47,7 +48,7 @@ const questions = [
   {
     id: 3,
     title: 'Low-Key Happy Hours',
-    body: "I'm looking for local bars or restaurants that tend to be a little more private, preferrably around Foggy Bottom or Dupont Circle",
+    body: 'Im looking for local bars or restaurants that tend to be a little more private, preferrably around Foggy Bottom or Dupont Circle',
     author: 'Elizabeth Ford',
     created_at: '05-11-1975',
     answers: [
@@ -60,7 +61,7 @@ const questions = [
       },
       {
         date: '05-17-1975',
-        body: "I'd steer clear of Top of The Gate.  It is crawling with annoying interns and media types.",
+        body: 'Id steer clear of Top of The Gate.  It is crawling with annoying interns and media types.',
         author: 'Pat Nixon',
         accepted: true,
         Votes: -2
@@ -76,9 +77,3 @@ const questions = [
     ]
   }
 ]
-
-export const getQuestions = () => {
-  return new Promise((resolve, reject) => {
-    resolve({ questions: questions })
-  })
-}

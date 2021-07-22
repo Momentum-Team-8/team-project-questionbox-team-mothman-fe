@@ -1,12 +1,15 @@
-import React from 'react'
-import { Question } from './Question'
+import React, { useState } from 'react'
+import { data } from '../MockData.js'
+import { Question } from './Question.js'
 
-export const QuestionList = (props) => {
-  const { results } = props
+export const QuestionList = () => {
+  const [questions] = useState(data)
   return (
     <div>
-      {results.map((question, idx) => (
-        <Question key={idx} question={question} />
+      {questions.map((question, idx) => (
+        <div key={idx}>
+          <Question question={question.title} />
+        </div>
       ))}
     </div>
   )
