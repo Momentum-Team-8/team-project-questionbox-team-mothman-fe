@@ -8,7 +8,12 @@ export const QuestionList = () => {
     <div>
       {questions.map((question, idx) => (
         <div key={idx}>
-          <Question question={question.title} />
+          <Question
+            title={question.title}
+            author={question.author}
+            created={question.created_at}
+            body={question.body}
+          />
         </div>
       ))}
     </div>
