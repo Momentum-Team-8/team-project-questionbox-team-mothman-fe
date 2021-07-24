@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import { QuestionDetail } from './QuestionDetail.js'
 import { FavButton } from './FavButton.js'
+import '../App.css'
 
 export const Question = (props) => {
   const [favorited, setFavorited] = useState(false)
@@ -17,7 +18,7 @@ export const Question = (props) => {
   }
 
   return (
-    <div>
+    <div className='qCard'>
       <h2>{title}</h2>
       <p>Asked {created} by {author}</p>
       <FavButton onClick={handleFavorited} />
@@ -29,9 +30,6 @@ export const Question = (props) => {
       {expand && (
         <div>
           <QuestionDetail
-            title={title}
-            author={author}
-            created={created}
             body={body}
           />
         </div>
