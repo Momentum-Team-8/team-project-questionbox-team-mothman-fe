@@ -3,10 +3,18 @@ import { Vote } from './Vote'
 import '../App.css'
 
 export const Answer = (props) => {
-  const { author, body, date, accepted } = props
+  const { author, body, date } = props
 
   return (
     <div className='aCard'>
+      <Vote />
+      <p>{body}</p>
+      <p> Answered on {date} by {author}</p>
+    </div>
+  )
+}
+
+{ /* <div className='aCard'>
       {accepted
         ? <div className='acceptedAnswer'>
           <Vote />
@@ -19,5 +27,4 @@ export const Answer = (props) => {
           <p> Answered on {date} by {author}</p>
           </div>}
     </div>
-  )
-}
+  ) */ }

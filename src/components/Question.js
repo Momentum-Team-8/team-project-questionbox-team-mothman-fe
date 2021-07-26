@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
-import { QuestionDetail } from './QuestionDetail.js'
 import { FavButton } from './FavButton.js'
+import { Link } from 'react-router-dom'
 import '../App.css'
 
 export const Question = (props) => {
   const [favorited, setFavorited] = useState(false)
   const [expand, setExpand] = useState(false)
-  const { title, author, created, body } = props
+  const { title, author, created, body, questionId } = props
 
   const handleExpand = () => {
     setExpand(!expand)
@@ -19,7 +19,10 @@ export const Question = (props) => {
 
   return (
     <div className='qCard'>
-      <h2>{title}</h2>
+      <Link to={`/questions/${questionId}`}>
+        <h2>{title}</h2>
+        <p>{questionId}</p>
+      </Link>
       <p>Asked {created} by {author}</p>
       <FavButton onClick={handleFavorited} />
       <button onClick={handleExpand}>
@@ -29,9 +32,7 @@ export const Question = (props) => {
       </button>
       {expand && (
         <div>
-          <QuestionDetail
-            body={body}
-          />
+          <p>{body}</p>
         </div>
       )}
     </div>

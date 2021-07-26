@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
-import { data } from '../MockData.js'
+import React, { useState, useEffect } from 'react'
+import { getQuestions } from '../api'
 import { Question } from './Question.js'
+import '../App'
 
 export const QuestionList = () => {
-  const [questions] = useState(data)
+  const [questions, setQuestions] = useState([])
+  useEffect(() => {
+    getQuestions().then((data) => {
+      setQuestions(data)
+    })
+  }, [])
+
   return (
     <div>
       {questions.map((question, idx) => (
@@ -13,6 +20,7 @@ export const QuestionList = () => {
             author={question.author}
             created={question.created_at}
             body={question.body}
+            questionId={question.id}
           />
         </div>
       ))}
