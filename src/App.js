@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Header } from './components/Header.js'
 import { QuestionList } from './components/QuestionList.js'
 import { QuestionDetail } from './components/QuestionDetail.js'
@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 library.add(faCheckSquare, faArrowAltCircleDown, faArrowAltCircleUp, faHeart, faHeartBroken, faCheckDouble, faCaretSquareUp, faCaretSquareDown)
 
 export const App = (props) => {
-  const { selectedQuestionId } = props
+  const { questionId } = props
   return (
     <Router>
       <div>
@@ -21,7 +21,7 @@ export const App = (props) => {
           <div className='body'>
             <Switch>
               <Route path='/' exact component={() => <QuestionList />} />
-              <Route path='/questions/:id' component={() => <QuestionDetail selectedQuestionId={selectedQuestionId} />} />
+              <Route path='/questions/:questionId' component={() => <QuestionDetail questionId={questionId} />} />
             </Switch>
           </div>
         </div>

@@ -7,7 +7,7 @@ import '../App.css'
 export const Question = (props) => {
   const [favorited, setFavorited] = useState(false)
   const [expand, setExpand] = useState(false)
-  const { title, author, created, body, selectedQuestionId } = props
+  const { title, author, created, body, questionId } = props
 
   const handleExpand = () => {
     setExpand(!expand)
@@ -19,9 +19,9 @@ export const Question = (props) => {
 
   return (
     <div className='qCard'>
-      <Link to={`/questions/${selectedQuestionId}`}>
+      <Link to={`/questions/${questionId}`}>
         <h2>{title}</h2>
-        <p>{selectedQuestionId}</p>
+        <p>{questionId}</p>
       </Link>
       <p>Asked {created} by {author}</p>
       <FavButton onClick={handleFavorited} />

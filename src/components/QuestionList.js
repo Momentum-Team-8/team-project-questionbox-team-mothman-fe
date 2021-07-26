@@ -20,7 +20,7 @@ export const QuestionList = () => {
             author={question.author}
             created={question.created_at}
             body={question.body}
-            selectedQuestionId={question.id}
+            questionId={question.id}
           />
         </div>
       ))}

@@ -3,16 +3,16 @@ import { getQuestionDetail } from '../api'
 import '../App.css'
 
 export const QuestionDetail = (props) => {
-  const { selectedQuestionId } = props
+  const { questionId } = props
   const [questionDetail, setQuestionDetail] = useState([])
   const [loading, setLoading] = useState(true)
   useEffect(() => {
-    console.log(selectedQuestionId)
-    getQuestionDetail(selectedQuestionId).then((data) => {
+    console.log(questionId)
+    getQuestionDetail(questionId).then((data) => {
       setQuestionDetail(data)
       setLoading(false)
     })
-  }, [selectedQuestionId])
+  }, [questionId])
 
   return (
     <>
@@ -24,7 +24,7 @@ export const QuestionDetail = (props) => {
           <p>{questionDetail.body}</p>
           <p> Favorited by {questionDetail.favorited_by} users</p>
           <button>Favorite</button>
-        </div>}
+          </div>}
     </>
   )
 }
