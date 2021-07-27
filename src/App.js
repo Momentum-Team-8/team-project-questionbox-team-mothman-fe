@@ -33,7 +33,7 @@ export const App = () => {
                 )}
               />
               <Route
-                exact path='/questions/:id'
+                path='/details/:id'
                 component={() => (
                   <QuestionDetail
                     selectedQuestionId={selectedQuestionId}

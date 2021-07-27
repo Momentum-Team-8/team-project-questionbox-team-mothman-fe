@@ -1,11 +1,14 @@
 import React from 'react'
 import '../App.css'
 import { AskButton } from './AskButton'
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
   return (
     <div className='nav'>
-      <h1> Welcome to Question Box</h1>
+      <Link to='/'>
+        <h1> Welcome to Question Box</h1>
+      </Link>
       <label for='searchbox'>Search QuestionBox:</label>
       <input type='search' id='searchbox' name='searchbox' />
       <br />
