@@ -4,13 +4,12 @@ import { FavButton } from './FavButton'
 import { Vote } from './Vote'
 import '../App.css'
 
-export const QuestionDetail = (props) => {
+export const QuestionDetail = (props, { match }) => {
   const [questionDetail, setQuestionDetail] = useState([])
   const { selectedQuestionId } = props
   useEffect(() => {
     getQuestionDetail(selectedQuestionId).then((data) => {
       setQuestionDetail(data)
-      console.log(data)
     })
   }, [selectedQuestionId])
 
@@ -25,6 +24,17 @@ export const QuestionDetail = (props) => {
       </div>
 
       <p>Answer List Here</p>
+      {questionDetail.answers && questionDetail.answers.map((answer, idx) => {
+        return (
+          <div key={idx}>
+            <div className='aCard'>
+              <Vote />
+              <p>{answer.answer}</p>
+              <p> Answered on {answer.created_at} by {answer.user}</p>
+            </div>
+          </div>
+        )
+      })}
     </>
   )
 }
