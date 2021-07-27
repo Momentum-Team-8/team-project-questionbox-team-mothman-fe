@@ -20,3 +20,21 @@ export const AnswerList = () => {
     </div>
   )
 }
+
+
+
+
+---------
+<div>
+        {questionDetail.answers.map((answer, idx) => {
+          return (
+            <div key={idx}>
+              <div className='regAnswer'>
+                <Vote />
+                <p>{answer.answer}</p>
+                <p> Answered on {answer.created_at} by {answer.user}</p>
+              </div>
+            </div>
+          )
+        })}
+      </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const UpVote = () => {
+export const DownVote = () => {
   const handleClick = () => {
     // subtract from answer count
   }

@@ -34,7 +34,7 @@ export const AskQuestion = () => {
   return (
     <div>
       <form onSubmit={(event) => handleSubmit(event)}>
-        <h1>Question Form</h1>
+        <h1>Whats your Question</h1>
         <label>
           Question Title:
           <input
