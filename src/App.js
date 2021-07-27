@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Header } from './components/Header.js'
 import { QuestionList } from './components/QuestionList.js'
 import { QuestionDetail } from './components/QuestionDetail.js'
+import { AskQuestion } from './components/AskQuestion'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheckSquare, faArrowAltCircleDown, faArrowAltCircleUp, faHeart, faHeartBroken, faCheckDouble, faCaretSquareUp, faCaretSquareDown } from '@fortawesome/free-solid-svg-icons'
 import { SideNav } from './components/SideNav.js'
@@ -40,6 +41,10 @@ export const App = () => {
                     setLoading={setLoading}
                   />
                 )}
+              />
+              <Route
+                exact path='/questions/ask'
+                component={AskQuestion}
               />
             </Switch>
           </div>

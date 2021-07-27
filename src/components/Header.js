@@ -1,5 +1,6 @@
 import React from 'react'
 import '../App.css'
+import { AskButton } from './AskButton'
 
 export const Header = () => {
   return (
@@ -8,7 +9,7 @@ export const Header = () => {
       <label for='searchbox'>Search QuestionBox:</label>
       <input type='search' id='searchbox' name='searchbox' />
       <br />
-      <button>Ask A Question</button>
+      <AskButton />
     </div>
   )
 }
