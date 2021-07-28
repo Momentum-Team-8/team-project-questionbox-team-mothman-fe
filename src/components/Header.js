@@ -1,6 +1,5 @@
 import React from 'react'
 import '../App.css'
-import { AskButton } from './AskButton'
 import { Link } from 'react-router-dom'
 
 export const Header = () => {

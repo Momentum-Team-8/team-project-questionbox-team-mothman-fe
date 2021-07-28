@@ -32,10 +32,10 @@ export const App = () => {
                   />
                 )}
               />
-              <Route 
+              <Route
                 path='/registration'
                 component={Registration}
-               />
+              />
               <Route
                 exact path='/questions/ask'
                 component={AskQuestion}

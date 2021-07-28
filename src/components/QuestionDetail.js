@@ -3,15 +3,24 @@ import { getQuestionDetail } from '../api'
 import { FavButton } from './FavButton'
 import { Vote } from './Vote'
 import '../App.css'
+import { AddAnswer } from './AddAnswer'
+import { EditButton } from './EditButton'
+import { DeleteButton } from './DeleteButton'
+import { useParams } from 'react-router'
 
-export const QuestionDetail = (props, { match }) => {
+export const QuestionDetail = () => {
   const [questionDetail, setQuestionDetail] = useState([])
-  const { selectedQuestionId } = props
+  const [expand, setExpand] = useState(false)
+  const { id } = useParams()
   useEffect(() => {
-    getQuestionDetail(selectedQuestionId).then((data) => {
+    getQuestionDetail(id).then((data) => {
       setQuestionDetail(data)
     })
-  }, [selectedQuestionId])
+  }, [questionDetail, id])
+
+  const handleExpand = () => {
+    setExpand(!expand)
+  }
 
   return (
     <>
@@ -21,6 +30,14 @@ export const QuestionDetail = (props, { match }) => {
         <p>{questionDetail.body}</p>
         <p> Favorited by {questionDetail.favorited_by} users</p>
         <FavButton />
+        <EditButton />
+        <DeleteButton />
+        <button className='qCardButton' onClick={handleExpand}>Respond</button>
+        {expand && (
+          <div>
+            <AddAnswer />
+          </div>
+        )}
       </div>
 
       <p>Answer List Here</p>
