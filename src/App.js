@@ -3,15 +3,44 @@ import { Header } from './components/Header.js'
 import { QuestionList } from './components/QuestionList.js'
 import { QuestionDetail } from './components/QuestionDetail.js'
 import { AskQuestion } from './components/AskQuestion'
+import { Login } from './components/Login'
+import { useLocalStorageState } from 'use-local-storage-state'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCheckSquare, faArrowAltCircleDown, faArrowAltCircleUp, faHeart, faHeartBroken, faCheckDouble, faCaretSquareUp, faCaretSquareDown } from '@fortawesome/free-solid-svg-icons'
+import {
+  faCheckSquare,
+  faArrowAltCircleDown,
+  faArrowAltCircleUp,
+  faHeart,
+  faHeartBroken,
+  faCheckDouble,
+  faCaretSquareUp,
+  faCaretSquareDown
+} from '@fortawesome/free-solid-svg-icons'
 import { SideNav } from './components/SideNav.js'
-import { Registration } from './components/Registration'; import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-library.add(faCheckSquare, faArrowAltCircleDown, faArrowAltCircleUp, faHeart, faHeartBroken, faCheckDouble, faCaretSquareUp, faCaretSquareDown)
+import { Registration } from './components/Registration'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+library.add(
+  faCheckSquare,
+  faArrowAltCircleDown,
+  faArrowAltCircleUp,
+  faHeart,
+  faHeartBroken,
+  faCheckDouble,
+  faCaretSquareUp,
+  faCaretSquareDown
+)
 
 export const App = () => {
   const [selectedQuestionId, setSelectedQuestionId] = useState('')
   const [loading, setLoading] = useState(true)
+  // const [username, setUsername] = useLocalStorageState('username', '')
+  const [token, setToken] = useLocalStorageState('token', '')
+  function setAuth (token) {
+    // setUsername(username)
+    setToken(token)
+  }
+  const isLoggedIn = token
+
   return (
     <Router>
       <div>
@@ -23,7 +52,8 @@ export const App = () => {
           <div className='body'>
             <Switch>
               <Route
-                exact path='/'
+                exact
+                path='/'
                 component={() => (
                   <QuestionList
                     setSelectedQuestionId={setSelectedQuestionId}
@@ -32,14 +62,22 @@ export const App = () => {
                   />
                 )}
               />
-              <Route 
-                path='/registration'
-                component={Registration}
-               />
+              <Route exact path='/registration' component={Registration} />
               <Route
-                exact path='/questions/ask'
-                component={AskQuestion}
+                exact
+                path='/login'
+                component={() => (
+                  <Login setAuth={setAuth} isLoggedIn={isLoggedIn} />
+                )}
               />
+              <Route
+                exact
+                path='/login'
+                component={() => (
+                  <Login setAuth={setAuth} isLoggedIn={isLoggedIn} />
+                )}
+              />
+              <Route exact path='/questions/ask' component={AskQuestion} />
               <Route
                 path='/details/:id'
                 component={() => (

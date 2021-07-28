@@ -15,3 +15,15 @@ export const getQuestionDetail = (id) => {
       .then((res) => res.data)
   )
 }
+
+export function requestLogin (username, password) {
+  return (
+    axios
+      .post('https://questionbox-sasmothbe.herokuapp.com/auth/token/login',
+        {
+          email: username,
+          password: password
+        }
+      )
+  )
+}
