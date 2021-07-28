@@ -12,7 +12,6 @@ export const Header = () => {
       <label for='searchbox'>Search QuestionBox:</label>
       <input type='search' id='searchbox' name='searchbox' />
       <br />
-      <AskButton />
     </div>
   )
 }

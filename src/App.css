@@ -22,6 +22,11 @@
   color: rgb(251, 254, 249);
 }
 
+.nav a {
+  color: rgb(251, 254, 249);
+  text-decoration: none;
+}
+
 .sideNav {
   flex-basis: 10rem;
   flex-grow: 1;
@@ -32,8 +37,33 @@
   justify-content: space-around;
   align-items: center;
   border-style: outset;
+  color: rgb(57, 57, 58);
 }
 
+.qCard a {
+  color: rgb(8, 33, 87);
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.askButton {
+  background-color: rgb(243, 146, 55);
+  font-size: 24px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.askButton a {
+  color: rgb(25, 25, 35);
+  text-decoration: none;
+}
+
+.askButton a:hover {
+  background-color: rgb(242, 172, 107);
+  font-size: 24px;
+  border-radius: 4px;
+  width: 100%;
+}
 .acceptedAnswer {
   justify-content: space-around;
   align-items: center;
