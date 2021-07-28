@@ -1,6 +1,4 @@
-import React from 'react'
-import { Vote } from './Vote'
-import '../App.css'
+
 
 export const Answer = (props) => {
   const { author, body, date } = props
@@ -28,3 +26,19 @@ export const Answer = (props) => {
           </div>}
     </div>
   ) */ }
+
+
+
+  <div>
+  {questionDetail.answers.map((answer, idx) => {
+    return (
+      <div key={idx}>
+        <div className='aCard'>
+          <Vote />
+          <p>{answer.body}</p>
+          <p> Answered on {answer.created_at} by {answer.user}</p>
+        </div>
+      </div>
+    )
+  })}
+</div>

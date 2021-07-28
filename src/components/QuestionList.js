@@ -35,7 +35,7 @@ export const QuestionList = (props) => {
         {allQuestions.map((question, idx) => {
           return (
             <div key={idx} class='qCard'>
-              <Link to={`/questions/${question.id}`} onClick={(e) => handleClick(e)}>
+              <Link to={`/details/${question.id}`} onClick={(e) => handleClick(e)}>
                 <h3 id={question.id}>{question.title}</h3>
               </Link>
               <h4> asked by: {question.user} on {question.created_at}</h4>

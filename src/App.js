@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Header } from './components/Header.js'
 import { QuestionList } from './components/QuestionList.js'
 import { QuestionDetail } from './components/QuestionDetail.js'
+import { AskQuestion } from './components/AskQuestion'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheckSquare, faArrowAltCircleDown, faArrowAltCircleUp, faHeart, faHeartBroken, faCheckDouble, faCaretSquareUp, faCaretSquareDown } from '@fortawesome/free-solid-svg-icons'
 import { SideNav } from './components/SideNav.js'
@@ -31,8 +32,16 @@ export const App = () => {
                   />
                 )}
               />
+              <Route 
+                path='/registration'
+                component={Registration}
+               />
               <Route
-                exact path='/questions/:id'
+                exact path='/questions/ask'
+                component={AskQuestion}
+              />
+              <Route
+                path='/details/:id'
                 component={() => (
                   <QuestionDetail
                     selectedQuestionId={selectedQuestionId}
@@ -41,7 +50,6 @@ export const App = () => {
                   />
                 )}
               />
-              <Route exact path='/registration' component={Registration} />
             </Switch>
           </div>
         </div>
