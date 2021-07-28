@@ -6,7 +6,7 @@ import { AskQuestion } from './components/AskQuestion'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheckSquare, faArrowAltCircleDown, faArrowAltCircleUp, faHeart, faHeartBroken, faCheckDouble, faCaretSquareUp, faCaretSquareDown } from '@fortawesome/free-solid-svg-icons'
 import { SideNav } from './components/SideNav.js'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Registration } from './components/Registration'; import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 library.add(faCheckSquare, faArrowAltCircleDown, faArrowAltCircleUp, faHeart, faHeartBroken, faCheckDouble, faCaretSquareUp, faCaretSquareDown)
 
 export const App = () => {
@@ -32,6 +32,14 @@ export const App = () => {
                   />
                 )}
               />
+              <Route 
+                path='/registration'
+                component={Registration}
+               />
+              <Route
+                exact path='/questions/ask'
+                component={AskQuestion}
+              />
               <Route
                 path='/details/:id'
                 component={() => (
@@ -41,10 +49,6 @@ export const App = () => {
                     setLoading={setLoading}
                   />
                 )}
-              />
-              <Route
-                exact path='/questions/ask'
-                component={AskQuestion}
               />
             </Switch>
           </div>
