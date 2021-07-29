@@ -19,34 +19,37 @@
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: rgb(25, 25, 35);
+  background: #af9ab2;
   color: rgb(251, 254, 249);
 }
 
-.nav a {
-  color: rgb(251, 254, 249);
+.nav {
+  color: #672A4E;
   text-decoration: none;
 }
 
 .sideNav {
   flex-basis: 10rem;
   flex-grow: 1;
-  background: rgb(14, 121, 178);
+  background: #C7EDE4;
+  border-style: outset;
 }
 .box {
   align-items: center;
   justify-content: space-evenly;
+  background-color: #D5FFF3;
 }
 
 .qCard {
   justify-content: space-around;
   align-items: center;
   border-style: outset;
+  background-color: #d5fff3;
   color: rgb(57, 57, 58);
 }
 
 .qCardButton {
-  background-color: rgb(251, 254, 249);
+  background-color: #AF9AB2;
   color: rgb(8, 33, 87);
   font-size: 18px;
   margin: 5px;
@@ -55,8 +58,8 @@
 }
 
 .ansCardButton {
-  background-color: rgb(251, 254, 249);
-  color: rgb(8, 33, 87);
+  background-color: #AF9AB2;
+  color: #AF9AB2;
   font-size: 14px;
   margin: 5px;
   border: 2px solid rgb(25, 25, 35);
@@ -76,14 +79,15 @@
   align-items: center;
   border-style: inset;
   width: 90%;
-  color: rgb(57, 57, 58);
+  color: #AF9AB2;
 }
 
 .askButton {
-  background-color: rgb(243, 146, 55);
+  background-color: #820B8A;
   font-size: 24px;
   border-radius: 4px;
   width: 100%;
+  color:#AF9AB2
 }
 
 .askButton a {
@@ -125,4 +129,12 @@
 .detailHeader {
   display: flex;
   justify-content: space-evenly;
+}
+
+.label {
+  color: #672A4E
+}
+
+.searchbox {
+  color: #672A4E
 }
