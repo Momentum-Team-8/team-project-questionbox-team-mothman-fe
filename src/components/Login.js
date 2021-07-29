@@ -6,7 +6,8 @@ export function Login ({ isLoggedIn, setAuth }) {
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState()
   const history = useHistory()
-  function handleSubmit (event) {
+
+  const handleSubmit = (event) => {
     event.preventDefault()
     requestLogin(username, password)
       .then((data) => {
@@ -29,7 +30,7 @@ export function Login ({ isLoggedIn, setAuth }) {
 
         <div className='mv2'>
           <label className='db mb2' htmlFor='username'>
-            Username
+            Email:
           </label>
           <input
             type='text'
@@ -42,7 +43,7 @@ export function Login ({ isLoggedIn, setAuth }) {
 
         <div className='mv2'>
           <label className='db mb2' htmlFor='password'>
-            Password
+            Password:
           </label>
           <input
             type='password'
