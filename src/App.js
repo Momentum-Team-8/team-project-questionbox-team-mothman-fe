@@ -17,18 +17,11 @@ import {
   faCaretSquareDown
 } from '@fortawesome/free-solid-svg-icons'
 import { SideNav } from './components/SideNav.js'
-import { Registration } from './components/Registration'
+import { Registration } from './components/Registration';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-library.add(
-  faCheckSquare,
-  faArrowAltCircleDown,
-  faArrowAltCircleUp,
-  faHeart,
-  faHeartBroken,
-  faCheckDouble,
-  faCaretSquareUp,
-  faCaretSquareDown
-)
+import { EditAnswer } from './components/EditAnswer.js'
+library.add(faCheckSquare, faArrowAltCircleDown, faArrowAltCircleUp, faHeart, faHeartBroken, faCheckDouble, faCaretSquareUp, faCaretSquareDown)
+
 
 export const App = () => {
   const [selectedQuestionId, setSelectedQuestionId] = useState('')
@@ -62,7 +55,10 @@ export const App = () => {
                   />
                 )}
               />
-              <Route exact path='/registration' component={Registration} />
+              <Route
+                path='/registration'
+                component={Registration}
+              />
               <Route
                 exact
                 path='/login'
@@ -78,6 +74,10 @@ export const App = () => {
                 )}
               />
               <Route exact path='/questions/ask' component={AskQuestion} />
+              <Route
+                exact path='/answers/edit/:id'
+                component={EditAnswer}
+              />
               <Route
                 path='/details/:id'
                 component={() => (
