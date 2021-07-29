@@ -62,11 +62,10 @@ export const QuestionDetail = (props) => {
       <h3>Community Answers</h3>
       {questionDetail.answers && questionDetail.answers.map((answer) => {
         return (
-          <div key={answer.id}>
-            <div className='aCard'>
-              <p>{answer.answer}</p>
-              <p> Answered on {answer.created_at} by {answer.user}</p>
-            </div>
+          <div key={answer.id} className='ansCard'>
+            <p>{answer.answer}</p>
+            <br />
+            <p> Answered on {answer.created_at} by {answer.user}</p>
             <Link to={`/answers/edit/${answer.id}`} onClick={(e) => handleClick(e)}>
               <button>Edit This Answer</button>
             </Link>

@@ -8,6 +8,7 @@
 }
 
 .body {
+  align-items: center;
   flex-basis: 0;
   flex-grow: 999;
   min-width: 50%;
@@ -43,7 +44,7 @@
 .qCardButton {
   background-color: rgb(251, 254, 249);
   color: rgb(8, 33, 87);
-  font-size: 22px;
+  font-size: 18px;
   border: 2px solid rgb(25, 25, 35);
   border-radius: 4px;
 }
@@ -51,7 +52,15 @@
 .qCard a {
   color: rgb(8, 33, 87);
   text-decoration: none;
-  font-size: 22px;
+  font-size: 18px;
+}
+
+.ansCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-style: inset;
+  color: rgb(57, 57, 58);
 }
 
 .askButton {
