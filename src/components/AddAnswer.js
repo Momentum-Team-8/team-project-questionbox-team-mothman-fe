@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory, useParams } from 'react-router-dom'
 
-export const AddAnswer = (props) => {
+export const AddAnswer = ({ token }) => {
   const { id } = useParams()
   console.log({ id })
+  console.log({ token })
   const [answer, setAnswer] = useState('')
   const history = useHistory()
 
@@ -22,7 +23,7 @@ export const AddAnswer = (props) => {
         },
         {
           headers: {
-            Authorization: 'Token fe4ba9290bbdc508c1bd0369584bc981dbca214e',
+            Authorization: `Token ${token}`,
             'Content-Type': 'application/json'
           }
         }

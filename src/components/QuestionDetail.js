@@ -3,7 +3,6 @@ import { getQuestionDetail } from '../api'
 import { FavButton } from './FavButton'
 import '../App.css'
 import { AddAnswer } from './AddAnswer'
-import { EditButton } from './EditButton'
 import { DeleteButton } from './DeleteButton'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
@@ -51,12 +50,11 @@ export const QuestionDetail = (props) => {
         <p>{questionDetail.body}</p>
         <p> Favorited by {questionDetail.favorited_by} users</p>
         <FavButton />
-        <EditButton />
         <DeleteButton onClick={handleDelete} />
         <button className='qCardButton' onClick={handleExpand}>Respond</button>
         {expand && (
           <div>
-            <AddAnswer />
+            <AddAnswer token={token} />
           </div>
         )}
       </div>
@@ -66,10 +64,9 @@ export const QuestionDetail = (props) => {
         return (
           <div key={answer.id}>
             <div className='aCard'>
-              <p>this is the answer body: {answer.answer}</p>
+              <p>{answer.answer}</p>
               <p> Answered on {answer.created_at} by {answer.user}</p>
             </div>
-            <p>this is the answer ID: {answer.id}</p>
             <Link to={`/answers/edit/${answer.id}`} onClick={(e) => handleClick(e)}>
               <button>Edit This Answer</button>
             </Link>

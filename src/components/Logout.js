@@ -1,20 +1,20 @@
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-export const Logout = ({ isLoggedIn, setAuth }) => {
+export const Logout = ({ token, setToken }) => {
   axios
     .post(
       'https://questionbox-sasmothbe.herokuapp.com/auth/token/logout',
       {},
       {
         headers: {
-          Authorization: `Token ${isLoggedIn}`,
+          Authorization: `Token ${token}`,
           'Content-Type': 'application/json'
         }
       }
     )
     .then(() => {
-      setAuth(null)
+      setToken(null)
     })
 
   return (

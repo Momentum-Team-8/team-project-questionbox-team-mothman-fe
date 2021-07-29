@@ -12,6 +12,7 @@ import { SideNav } from './components/SideNav.js'
 import { Registration } from './components/Registration'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { EditAnswer } from './components/EditAnswer.js'
+import { AddAnswer } from './components/AddAnswer.js'
 library.add(faCheckSquare, faArrowAltCircleDown, faArrowAltCircleUp, faHeart, faHeartBroken, faCheckDouble, faCaretSquareUp, faCaretSquareDown)
 
 export const App = () => {
@@ -81,6 +82,15 @@ export const App = () => {
                     selectedQuestionId={selectedQuestionId}
                     loading={loading}
                     setLoading={setLoading}
+                    token={token}
+                  />
+                )}
+              />
+              <Route
+                path='/details/answer/:id'
+                component={() => (
+                  <AddAnswer
+                    selectedQuestionId={selectedQuestionId}
                     token={token}
                   />
                 )}
