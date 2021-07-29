@@ -33,6 +33,10 @@
   flex-grow: 1;
   background: rgb(14, 121, 178);
 }
+.box {
+  align-items: center;
+  justify-content: space-evenly;
+}
 
 .qCard {
   justify-content: space-around;
@@ -63,14 +67,15 @@
   color: rgb(8, 33, 87);
   text-decoration: none;
   font-size: 18px;
+  width: 90%;
 }
 
 .ansCard {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-style: inset;
-  width: 50%;
+  width: 90%;
   color: rgb(57, 57, 58);
 }
 
@@ -115,4 +120,9 @@
   justify-content: center;
   margin: 0 -5px;
   padding-bottom: 10px;
+}
+
+.detailHeader {
+  display: flex;
+  justify-content: space-evenly;
 }

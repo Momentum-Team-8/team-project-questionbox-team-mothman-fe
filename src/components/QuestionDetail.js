@@ -43,11 +43,11 @@ export const QuestionDetail = (props) => {
   }
 
   return (
-    <>
+    <div className='box'>
       <div className='qCard' key={questionDetail.id}>
-        <h2>{questionDetail.title}</h2>
-        <p className='italics'>asked by:{questionDetail.author} on {questionDetail.created_at}</p>
+        <h2 className='detailHeader'>{questionDetail.title}</h2>
         <p>{questionDetail.body}</p>
+        <p className='italics'> asked by:{questionDetail.user} on {questionDetail.created_at}</p>
         <p className='italics'> Favorited by {questionDetail.favorited_by} users</p>
         <div className='buttons'>
           <DeleteButton onClick={handleDelete} />
@@ -61,7 +61,7 @@ export const QuestionDetail = (props) => {
         </div>
       </div>
 
-      <h3>Community Answers</h3>
+      <h3 className='detailHeader'>Community Answers</h3>
       {questionDetail.answers && questionDetail.answers.map((answer) => {
         return (
           <div key={answer.id} className='ansCard'>
@@ -74,6 +74,6 @@ export const QuestionDetail = (props) => {
           </div>
         )
       })}
-    </>
+    </div>
   )
 }
