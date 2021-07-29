@@ -27,20 +27,3 @@ export function requestLogin (username, password) {
       )
   )
 }
-
-export const requestLogout = (isLoggedIn) => {
-  return (
-    axios
-      .post(
-        'https://questionbox-sasmothbe.herokuapp.com/auth/token/logout',
-        {},
-        {
-          headers: {
-            Authorization: `Token ${isLoggedIn}`,
-            'Content-Type': 'application/json'
-          }
-        }
-      )
-      .then((res) => res.data)
-  )
-}

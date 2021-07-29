@@ -75,6 +75,7 @@ export const App = () => {
                     selectedQuestionId={selectedQuestionId}
                     loading={loading}
                     setLoading={setLoading}
+                    token={token}
                   />
                 )}
               />
