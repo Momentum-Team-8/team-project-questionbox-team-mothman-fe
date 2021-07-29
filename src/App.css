@@ -45,6 +45,16 @@
   background-color: rgb(251, 254, 249);
   color: rgb(8, 33, 87);
   font-size: 18px;
+  margin: 5px;
+  border: 2px solid rgb(25, 25, 35);
+  border-radius: 4px;
+}
+
+.ansCardButton {
+  background-color: rgb(251, 254, 249);
+  color: rgb(8, 33, 87);
+  font-size: 14px;
+  margin: 5px;
   border: 2px solid rgb(25, 25, 35);
   border-radius: 4px;
 }
@@ -60,6 +70,7 @@
   justify-content: space-around;
   align-items: center;
   border-style: inset;
+  width: 50%;
   color: rgb(57, 57, 58);
 }
 
@@ -93,4 +104,15 @@
   align-items: center;
   border-style: inset;
   background: rgb(230, 230, 230);
+}
+
+.italics {
+  font-size: smaller;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 0 -5px;
+  padding-bottom: 10px;
 }

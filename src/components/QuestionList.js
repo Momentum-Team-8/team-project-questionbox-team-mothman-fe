@@ -35,15 +35,17 @@ export const QuestionList = (props) => {
           return (
             <div key={idx} class='qCard'>
               <Link to={`/details/${question.id}`} onClick={(e) => handleClick(e)}>
-                <h3 id={question.id}>{question.title}</h3>
+                <h2 id={question.id}>{question.title}</h2>
               </Link>
-              <h4> asked by: {question.user} on {question.created_at}</h4>
-              <FavButton onClick={handleFavorited} />
-              <button onClick={handleExpand}>
-                {expand
-                  ? <FontAwesomeIcon icon='arrow-alt-circle-up' />
-                  : <FontAwesomeIcon icon='arrow-alt-circle-down' />}
-              </button>
+              <h4 className='italics'> asked by: {question.user} on {question.created_at}</h4>
+              <div className='buttons'>
+                <FavButton onClick={handleFavorited} />
+                <button className='qCardButton' onClick={handleExpand}>
+                  {expand
+                    ? <FontAwesomeIcon icon='arrow-alt-circle-up' />
+                    : <FontAwesomeIcon icon='arrow-alt-circle-down' />}
+                </button>
+              </div>
               {expand && (
                 <div>
                   {question.body}

@@ -46,17 +46,19 @@ export const QuestionDetail = (props) => {
     <>
       <div className='qCard' key={questionDetail.id}>
         <h2>{questionDetail.title}</h2>
-        <p>asked by:{questionDetail.author} on {questionDetail.created_at}</p>
+        <p className='italics'>asked by:{questionDetail.author} on {questionDetail.created_at}</p>
         <p>{questionDetail.body}</p>
-        <p> Favorited by {questionDetail.favorited_by} users</p>
-        <FavButton />
-        <DeleteButton onClick={handleDelete} />
-        <button className='qCardButton' onClick={handleExpand}>Respond</button>
-        {expand && (
-          <div>
-            <AddAnswer token={token} />
-          </div>
-        )}
+        <p className='italics'> Favorited by {questionDetail.favorited_by} users</p>
+        <div className='buttons'>
+          <DeleteButton onClick={handleDelete} />
+          <button className='qCardButton' onClick={handleExpand}>Respond</button>
+          {expand && (
+            <div>
+              <AddAnswer token={token} />
+            </div>
+          )}
+          <FavButton />
+        </div>
       </div>
 
       <h3>Community Answers</h3>
@@ -65,9 +67,9 @@ export const QuestionDetail = (props) => {
           <div key={answer.id} className='ansCard'>
             <p>{answer.answer}</p>
             <br />
-            <p> Answered on {answer.created_at} by {answer.user}</p>
+            <p className='italics'> Answered on {answer.created_at} by {answer.user}</p>
             <Link to={`/answers/edit/${answer.id}`} onClick={(e) => handleClick(e)}>
-              <button>Edit This Answer</button>
+              <button className='ansCardButton'>Edit This Answer</button>
             </Link>
           </div>
         )

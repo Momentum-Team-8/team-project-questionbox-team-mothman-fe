@@ -8,7 +8,7 @@ export const FavButton = () => {
   }
   return (
     <div>
-      <button onClick={handleClick}>
+      <button className='qCardButton' onClick={handleClick}>
         {heart
           ? <FontAwesomeIcon icon='heart-broken' />
           : <FontAwesomeIcon icon='heart' />}
