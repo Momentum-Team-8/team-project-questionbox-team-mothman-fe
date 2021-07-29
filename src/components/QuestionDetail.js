@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useHistory } from 'react'
+import React, { useState, useEffect } from 'react'
 import { getQuestionDetail } from '../api'
 import { FavButton } from './FavButton'
 import '../App.css'
 import { AddAnswer } from './AddAnswer'
-import { EditAnswer } from './EditAnswer'
 import { EditButton } from './EditButton'
 import { DeleteButton } from './DeleteButton'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import axios from 'axios'
 
@@ -16,7 +15,6 @@ export const QuestionDetail = (props) => {
   const [expand, setExpand] = useState(false)
   const [selectedAnswerId, setSelectedAnswerId] = useState('')
   const { id } = useParams()
-  const history = useHistory
   useEffect(() => {
     getQuestionDetail(id).then((data) => {
       setQuestionDetail(data)

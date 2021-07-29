@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import { requestLogin } from '../api'
 import { useHistory } from 'react-router-dom'
-export function Login ({ isLoggedIn, setAuth }) {
-  const [username, setUsername] = useState('')
+
+export function Login ({ token, setToken }) {
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState()
   const history = useHistory()
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    requestLogin(username, password)
+    requestLogin(email, password)
       .then((data) => {
         if (data) {
-          setAuth(data.data.auth_token)
+          setToken(data.data.auth_token)
           console.log(data)
         }
       })
@@ -26,23 +27,23 @@ export function Login ({ isLoggedIn, setAuth }) {
     <div className='Login'>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        {errors && <div class='bg-red white pa3'>{errors}</div>}
+        {errors && <div>{errors}</div>}
 
-        <div className='mv2'>
-          <label className='db mb2' htmlFor='username'>
+        <div>
+          <label htmlFor='username'>
             Email:
           </label>
           <input
             type='text'
-            id='username'
+            id='email'
             required
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </div>
 
-        <div className='mv2'>
-          <label className='db mb2' htmlFor='password'>
+        <div>
+          <label htmlFor='password'>
             Password:
           </label>
           <input

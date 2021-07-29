@@ -2,22 +2,24 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-export const AskQuestion = () => {
+export const AskQuestion = (props) => {
+  const { token } = props
   const [body, setBody] = useState('')
   const [title, setTitle] = useState('')
   const history = useHistory()
+  console.log({ token })
 
   const handleSubmit = (event) => {
     axios
       .post(
         'https://questionbox-sasmothbe.herokuapp.com/api/questions/create/',
         {
-          title: title,
-          body: body
+          title: `${title}`,
+          body: `${body}`
         },
         {
           headers: {
-            Authorization: 'Token fe4ba9290bbdc508c1bd0369584bc981dbca214e',
+            Authorization: `Token ${token}`,
             'Content-Type': 'application/json'
           }
         }

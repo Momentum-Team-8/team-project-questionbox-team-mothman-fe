@@ -12,9 +12,14 @@ export const Header = (props) => {
       <label for='searchbox'>Search QuestionBox:</label>
       <input type='search' id='searchbox' name='searchbox' />
       <br />
-      <Link to='/login'><p>Login</p></Link>
-      <Link to='/logout'><p>Log out</p></Link>
-      <Link to='/registration'><p>Sign Up</p></Link>
+      {isLoggedIn
+        ? <>
+          <Link to='/logout'><p>Log out</p></Link>
+        </>
+        : <>
+          <Link to='/login'><p>Login</p></Link>
+          <Link to='/registration'><p>Sign Up</p></Link>
+        </>}
     </div>
   )
 }

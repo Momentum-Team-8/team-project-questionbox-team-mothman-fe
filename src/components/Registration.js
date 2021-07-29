@@ -7,24 +7,27 @@ export const Registration = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [name, setName] = useState('')
-  const url = 'https://questionbox-sasmothbe.herokuapp.com/api/accounts/signup'
   const history = useHistory()
   const handleSubmit = () => {
-    axios.post(url, {
-      name: name,
-      email: email,
-      password: password,
-      password2: confirmPassword
-    }).then(response => {
-      console.log(response)
-      history.push('/')
-    })
+    axios
+      .post(
+        'https://questionbox-sasmothbe.herokuapp.com/api/accounts/signup',
+        {
+          name: name,
+          email: email,
+          password: password,
+          password2: confirmPassword
+        }
+      )
+      .then(response => {
+        history.push('/')
+      })
   }
   return (
-    <div>
+    <div className='form'>
       <div class='field'>
         <label class='label'>Name</label>
-        <div class='control'>
+        <div>
           <input class='input' type='text' placeholder='Name input' value={name} onChange={event => setName(event.target.value)} />
           <i class='fas fa-id-badge' />
         </div>
@@ -32,23 +35,19 @@ export const Registration = () => {
 
       <div class='field'>
         <label class='label'>Email</label>
-        <div class='control has-icons-left has-icons-right'>
+        <div>
           <input
             class='input'
             type='text'
             placeholder='email input'
             value={email} onChange={event => setEmail(event.target.value)}
           />
-          <span class='icon is-small is-left'>
-            <i class='fas fa-user-tag' />
-          </span>
-          <span class='icon is-small is-right' />
         </div>
       </div>
 
       <div class='field'>
         <label class='label'>Password</label>
-        <div class='control has-icons-left has-icons-right'>
+        <div>
           <input
             class='input'
             type='password'
@@ -57,9 +56,9 @@ export const Registration = () => {
           />
         </div>
       </div>
-      <div class='field'>
+      <div>
         <label class='label'>Confirm Password</label>
-        <div class='control has-icons-left has-icons-right'>
+        <div>
           <input
             class='input'
             type='password'
@@ -68,13 +67,13 @@ export const Registration = () => {
           />
         </div>
       </div>
-      <div class='field is-grouped'>
-        <div class='control'>
-          <button class='button is-link' onClick={handleSubmit}>Submit</button>
+      <div>
+        <div>
+          <button onClick={handleSubmit}>Submit</button>
         </div>
-        <div class='control'>
+        <div>
           <Link to='/'>
-            <button class='button is-link is-light'>Cancel</button>
+            <button>Cancel</button>
           </Link>
         </div>
       </div>

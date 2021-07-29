@@ -18,14 +18,14 @@ export const App = () => {
   const [selectedQuestionId, setSelectedQuestionId] = useState('')
   const [loading, setLoading] = useState(true)
   const [token, setToken] = useLocalStorageState('token', '')
-  const isLoggedIn = token
-  const setAuth = (token) => {
-    setToken(token)
-  }
+  // const isLoggedIn = token
+  // const setAuth = (token) => {
+  // setToken(token)
+  // }
   return (
     <Router>
       <div>
-        <Header isLoggedIn={isLoggedIn} />
+        <Header token={token} setToken={setToken} />
         <div className='container'>
           <div className='sideNav'>
             <SideNav />
@@ -40,6 +40,7 @@ export const App = () => {
                     setSelectedQuestionId={setSelectedQuestionId}
                     loading={loading}
                     setLoading={setLoading}
+                    token={token}
                   />
                 )}
               />
@@ -51,22 +52,27 @@ export const App = () => {
                 exact
                 path='/login'
                 component={() => (
-                  <Login setAuth={setAuth} isLoggedIn={isLoggedIn} />
+                  <Login token={token} setToken={setToken} />
                 )}
               />
               <Route
                 exact path='/logout'
                 component={() => (
-                  <Logout setAuth={setAuth} isLoggedIn={isLoggedIn} />
+                  <Logout token={token} setToken={setToken} />
                 )}
               />
               <Route
                 exact path='/questions/ask'
-                component={AskQuestion}
+                component={() => (
+                  <AskQuestion
+                    token={token}
+                  />
+                )}
               />
               <Route
                 exact path='/answers/edit/:id'
                 component={EditAnswer}
+                token={token}
               />
               <Route
                 path='/details/:id'
