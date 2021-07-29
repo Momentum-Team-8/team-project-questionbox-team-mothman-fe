@@ -24,7 +24,6 @@ export const QuestionList = (props) => {
   }
 
   const handleClick = (e) => {
-    console.log(e.target.id)
     setSelectedQuestionId(e.target.id)
   }
 
